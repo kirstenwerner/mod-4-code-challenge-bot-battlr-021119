@@ -23,7 +23,7 @@ class BotsPage extends React.Component {
   render() {
     return (
       <div>
-        <YourBotArmy />
+        <YourBotArmy enlistedBots={this.state.enlistedBots}/>
         <BotCollection allBots={this.state.allBots} />
       </div>
     );
