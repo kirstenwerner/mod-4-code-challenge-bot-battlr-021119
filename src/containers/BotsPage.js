@@ -3,10 +3,9 @@ import BotCollection from "./BotCollection";
 import YourBotArmy from "./YourBotArmy"
 
 class BotsPage extends React.Component {
-  //start here with your code for step one
-  // https://bot-battler-api.herokuapp.com/api/v1/bots
   constructor(props) {
     super(props);
+    this.enlistBot = this.enlistBot.bind(this);
 
     this.state = {
       allBots: [],
@@ -20,11 +19,19 @@ class BotsPage extends React.Component {
     .then(allBots => this.setState({allBots}))
   }
 
+  enlistBot = (bot) => {
+    if (!this.state.enlistedBots.includes(bot)) {
+      this.setState({
+        enlistedBots: [...this.state.enlistedBots,bot]
+      })
+    }
+  }
+
   render() {
     return (
       <div>
         <YourBotArmy enlistedBots={this.state.enlistedBots}/>
-        <BotCollection allBots={this.state.allBots} />
+        <BotCollection allBots={this.state.allBots} enlistBot={this.enlistBot}/>
       </div>
     );
   }
