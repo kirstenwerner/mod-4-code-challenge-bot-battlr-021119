@@ -6,15 +6,11 @@ class YourBotArmy extends React.Component {
   showBotArmy = () => {
     if (this.props.enlistedBots.length !== 0) {
       return this.props.enlistedBots.map(bot => {
-        return <BotCard bot={bot} key={bot.id} handleClick={this.handleClick}/>
+        return <BotCard bot={bot} key={bot.id} handleClick={this.props.handleClick}/>
       })
     } else {
       return null
     }
-  }
-
-  handleClick = (bot) => {
-    debugger
   }
 
   render(){
